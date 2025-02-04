@@ -1,112 +1,109 @@
-# Expense Tracker
+Expense Tracker
 
-A personal finance tracking application to help users manage their income and expenses effectively, providing a real-time financial overview.
+A personal finance tracking application where users can log their income and expenses, categorize transactions, and view spending trends. This application helps users manage their budget effectively by providing a real-time financial overview.
 
-## 🌟 Features
+Features
 
-- **User Authentication & Security**
-  - Secure signup and login system using bcrypt for password hashing
-  - Session management to ensure data privacy
+✅ User Authentication & Security  
+- Secure signup and login system using bcrypt for password hashing.
+- Session management to ensure only authenticated users access their data.
 
-- **Dashboard Overview**
-  - Real-time display of Current Balance, Total Income, and Total Expenses
-  - Instant financial health tracking
+✅ Dashboard Overview  
+- Displays Current Balance, Total Income, and Total Expenses.
+- Helps users track their financial health at a glance.
 
-- **Transaction Management**
-  - Add, edit, delete, and view income and expenses
-  - Categorize transactions (Rent, Salary, Groceries, Dining)
-  - Color-coded transactions (green for income, red for expenses)
+✅ Transaction Management  
+- Users can add, edit, delete, and view income and expenses.
+- Supports categorization (e.g., Rent, Salary, Groceries, Dining).
+- Differentiates income (green) and expenses (red).
 
-- **Comprehensive Categorization**
-  - Predefined categories to track spending habits
+✅ Categorization of Expenses  
+- Users can select from predefined categories to track spending habits.
 
-- **Robust Backend**
-  - PostgreSQL database for reliable data storage
-  - Database migrations for structured data versioning
-  - Modular Express Router for clean API handling
+✅ Database Management  
+- Uses PostgreSQL to store transactions, users, and categories.
+- Implements database migrations for structured data versioning.
 
-## 🛠 Tech Stack
+✅ Express Router for Modular API Handling  
+- Separate routes for authentication, transactions, and categories.
+- Ensures a clean and maintainable backend structure.
 
-- **Backend:** Node.js, Express.js
-- **Database:** PostgreSQL
-- **Authentication:** bcrypt, express-session
-- **API:** RESTful API
-- **Migrations:** Knex.js
+✅ (Optional) Reports & Insights  
+- Monthly reports help users analyze spending trends.
 
-## 📂 Project Structure
+Tech Stack
+
+- Backend: Node.js, Express.js  
+- Database: PostgreSQL  
+- Authentication: bcrypt for password hashing, express-session for session management  
+- API: RESTful API using Express Router  
+- Database Migrations: Knex.js (Sequelize CLI)  
+- Version Control: Git 
+
+Folder Structure
 
 ```
 /expense-tracker
 │── /server
 │   ├── /routes
-│   │   ├── authRoutes.js
-│   │   ├── transactionRoutes.js
-│   │   ├── categoryRoutes.js
+│   │   ├── authRoutes.js      # User authentication routes
+│   │   ├── transactionRoutes.js # CRUD operations for transactions
+│   │   ├── categoryRoutes.js    # Manage expense categories
 │   ├── /models
-│   │   ├── User.js
-│   │   ├── Transaction.js
-│   │   ├── Category.js
+│   │   ├── User.js             # User schema
+│   │   ├── Transaction.js      # Transaction schema
+│   │   ├── Category.js         # Category schema
 │   ├── /controllers
 │   │   ├── authController.js
 │   │   ├── transactionController.js
 │   │   ├── categoryController.js
 │   ├── /middleware
-│   │   ├── authMiddleware.js
+│   │   ├── authMiddleware.js  # Protect routes
 │   ├── /config
-│   │   ├── db.js
-│   ├── migrations/
+│   │   ├── db.js              # PostgreSQL connection
+│   ├── migrations/            # Database migrations
 │   ├── package.json
-│   ├── server.js
+│   ├── server.js              # Main Express app
 ```
 
-## 🚀 Getting Started
+## Installation & Setup
 
-### Prerequisites
-- Node.js
-- PostgreSQL
-
-### Installation
-
-1. Clone the repository
+1. Clone the repository:
    ```sh
    git clone https://github.com/yourusername/expense-tracker.git
    cd expense-tracker
    ```
-
-2. Install dependencies
+2. Install dependencies:
    ```sh
    npm install
    ```
-
-3. Set up environment variables
-   Create a `.env` file with:
-   ```env
-   DATABASE_URL=your_postgresql_connection_string
-   SESSION_SECRET=your_secret_key
-   ```
-
-4. Run database migrations
+3. Set up environment variables:
+   - Create a `.env` file and add the following:
+     ```env
+     DATABASE_URL=your_postgresql_connection_string
+     SESSION_SECRET=your_secret_key
+     ```
+4. Run database migrations:
    ```sh
    npx knex migrate:latest
    ```
-
-5. Start the server
+5. Start the server:
    ```sh
    npm start
    ```
+6. Access the application:
+   Open `http://localhost:3000` in your browser.
 
-6. Open `http://localhost:3000` in your browser
+API Endpoints
 
-## 🔌 API Endpoints
-
-### Authentication
+Authentication
 | Method | Endpoint         | Description          |
 |--------|-----------------|----------------------|
 | POST   | /api/register   | Register a new user |
 | POST   | /api/login      | Login user          |
 | GET    | /api/logout     | Logout user         |
 
-### Transactions
+Transactions
 | Method | Endpoint              | Description                   |
 |--------|----------------------|-------------------------------|
 | GET    | /api/transactions     | Get all transactions          |
@@ -114,25 +111,19 @@ A personal finance tracking application to help users manage their income and ex
 | PUT    | /api/transactions/:id | Edit a transaction           |
 | DELETE | /api/transactions/:id | Delete a transaction         |
 
-### Categories
+Categories
 | Method | Endpoint         | Description            |
 |--------|-----------------|------------------------|
 | GET    | /api/categories | Get all categories    |
 
-## 🔮 Future Improvements
 
-- Implement data visualization for better insights
-- Add budget goals and overspending alerts
-- Develop mobile app support using React Native
 
-## 🤝 Contributing
+Contributing
+Feel free to fork the repo and submit pull requests. Contributions are always welcome!
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
+License
 This project is licensed under the MIT License.
 
----
 
-Give a ⭐ if you find this project useful!
+Star the repo if you found this useful!
+
