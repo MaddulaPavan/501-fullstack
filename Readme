@@ -1,46 +1,46 @@
-**# Expense Tracker**
+# Expense Tracker
 
-A **personal finance tracking** application where users can log their **income and expenses**, categorize transactions, and view spending trends. This application helps users manage their budget effectively by providing a **real-time financial overview**.
+A personal finance tracking application where users can log their income and expenses, categorize transactions, and view spending trends. This application helps users manage their budget effectively by providing a real-time financial overview.
 
-**## Features**
+## Features
 
-✅ **User Authentication & Security**  
-- Secure signup and login system using **bcrypt** for password hashing.
+✅ User Authentication & Security  
+- Secure signup and login system using bcrypt for password hashing.
 - Session management to ensure only authenticated users access their data.
 
-✅ **Dashboard Overview**  
-- Displays **Current Balance, Total Income, and Total Expenses**.
+✅ Dashboard Overview  
+- Displays Current Balance, Total Income, and Total Expenses.
 - Helps users track their financial health at a glance.
 
-✅ **Transaction Management**  
-- Users can **add, edit, delete, and view** income and expenses.
+✅ Transaction Management  
+- Users can add, edit, delete, and view income and expenses.
 - Supports categorization (e.g., Rent, Salary, Groceries, Dining).
-- Differentiates **income (green)** and **expenses (red)**.
+- Differentiates income (green) and expenses (red).
 
-✅ **Categorization of Expenses**  
+✅ Categorization of Expenses  
 - Users can select from predefined categories to track spending habits.
 
-✅ **Database Management**  
-- Uses **PostgreSQL** to store transactions, users, and categories.
-- Implements **database migrations** for structured data versioning.
+✅ Database Management  
+- Uses PostgreSQL to store transactions, users, and categories.
+- Implements database migrations for structured data versioning.
 
-✅ **Express Router for Modular API Handling**  
+✅ Express Router for Modular API Handling  
 - Separate routes for authentication, transactions, and categories.
 - Ensures a clean and maintainable backend structure.
 
-✅ **(Optional) Reports & Insights**  
+✅ (Optional) Reports & Insights  
 - Monthly reports help users analyze spending trends.
 
-**## Tech Stack**
+## Tech Stack
 
-- **Backend:** Node.js, Express.js  
-- **Database:** PostgreSQL  
-- **Authentication:** bcrypt for password hashing, express-session for session management  
-- **API:** RESTful API using Express Router  
-- **Database Migrations:** Knex.js (or Sequelize CLI)  
-- **Version Control:** Git with periodic commits  
+- Backend: Node.js, Express.js  
+- Database: PostgreSQL  
+- Authentication: bcrypt for password hashing, express-session for session management  
+- API: RESTful API using Express Router  
+- Database Migrations: Knex.js (or Sequelize CLI)  
+- Version Control: Git with periodic commits  
 
-**## Folder Structure**
+## Folder Structure
 
 ```
 /expense-tracker
@@ -66,44 +66,44 @@ A **personal finance tracking** application where users can log their **income a
 │   ├── server.js              # Main Express app
 ```
 
-**## Installation & Setup**
+## Installation & Setup
 
-1. **Clone the repository**:
+1. Clone the repository:
    ```sh
    git clone https://github.com/yourusername/expense-tracker.git
    cd expense-tracker
    ```
-2. **Install dependencies**:
+2. Install dependencies:
    ```sh
    npm install
    ```
-3. **Set up environment variables**:
+3. Set up environment variables:
    - Create a `.env` file and add the following:
      ```env
      DATABASE_URL=your_postgresql_connection_string
      SESSION_SECRET=your_secret_key
      ```
-4. **Run database migrations**:
+4. Run database migrations:
    ```sh
    npx knex migrate:latest
    ```
-5. **Start the server**:
+5. Start the server:
    ```sh
    npm start
    ```
-6. **Access the application**:
+6. Access the application:
    Open `http://localhost:3000` in your browser.
 
-**## API Endpoints**
+## API Endpoints
 
-### **Authentication**
+### Authentication
 | Method | Endpoint         | Description          |
 |--------|-----------------|----------------------|
 | POST   | /api/register   | Register a new user |
 | POST   | /api/login      | Login user          |
 | GET    | /api/logout     | Logout user         |
 
-### **Transactions**
+### Transactions
 | Method | Endpoint              | Description                   |
 |--------|----------------------|-------------------------------|
 | GET    | /api/transactions     | Get all transactions          |
@@ -111,23 +111,23 @@ A **personal finance tracking** application where users can log their **income a
 | PUT    | /api/transactions/:id | Edit a transaction           |
 | DELETE | /api/transactions/:id | Delete a transaction         |
 
-### **Categories**
+### Categories
 | Method | Endpoint         | Description            |
 |--------|-----------------|------------------------|
 | GET    | /api/categories | Get all categories    |
 
-**## Future Improvements**
-- Implement **data visualization** for better insights.
-- Add **budget goals** and alerts for overspending.
-- Introduce **mobile app support** using React Native.
+## Future Improvements
+- Implement data visualization for better insights.
+- Add budget goals and alerts for overspending.
+- Introduce mobile app support using React Native.
 
-**## Contributing**
-Feel free to fork the repo and submit pull requests. Contributions are always welcome! 🚀
+## Contributing
+Feel free to fork the repo and submit pull requests. Contributions are always welcome!
 
-**## License**
+## License
 This project is licensed under the MIT License.
 
 ---
 
-**Star the repo if you found this useful! ⭐**
+Star the repo if you found this useful!
 
