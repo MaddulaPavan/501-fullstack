@@ -22,7 +22,7 @@ function Dashboard() {
 
   const handleSaveTransaction = (transactionData: Omit<Transaction, 'id'>) => {
     if (editingTransaction) {
-      // Update existing transaction
+
       setTransactions(transactions.map(t => 
         t.id === editingTransaction.id 
           ? { ...transactionData, id: t.id }
@@ -30,7 +30,7 @@ function Dashboard() {
       ));
       setEditingTransaction(null);
     } else {
-      // Add new transaction
+
       const newTransaction = {
         ...transactionData,
         id: Math.random().toString(36).substr(2, 9)
