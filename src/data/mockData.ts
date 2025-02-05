@@ -4,7 +4,7 @@ export const categories: Category[] = [
   { id: '1', name: 'Salary', type: 'INCOME' },
   { id: '2', name: 'Freelance', type: 'INCOME' },
   { id: '3', name: 'Investments', type: 'INCOME' },
-  { id: '4', name: 'Other Income', type: 'INCOMe' },
+  { id: '4', name: 'Other Income', type: 'INCOME' },
   { id: '5', name: 'Rent', type: 'EXPENSE' },
   { id: '6', name: 'Utilities', type: 'EXPENSE' },
   { id: '7', name: 'Groceries', type: 'EXPENSE' },
