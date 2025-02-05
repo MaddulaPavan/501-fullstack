@@ -1,30 +1,3 @@
-/*
-  # Initial Schema for Personal Expense Tracker
-
-  1. New Tables
-    - `categories`
-      - `id` (uuid, primary key)
-      - `name` (text, unique)
-      - `type` (text) - 'INCOME' or 'EXPENSE'
-      - `created_at` (timestamp)
-      
-    - `transactions`
-      - `id` (uuid, primary key)
-      - `user_id` (uuid, foreign key to auth.users)
-      - `category_id` (uuid, foreign key to categories)
-      - `amount` (decimal)
-      - `description` (text)
-      - `date` (date)
-      - `created_at` (timestamp)
-      
-  2. Security
-    - Enable RLS on both tables
-    - Add policies for authenticated users to:
-      - Read all categories
-      - CRUD their own transactions
-*/
-
--- Create categories table
 CREATE TABLE categories (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     name text UNIQUE NOT NULL,
@@ -32,7 +5,6 @@ CREATE TABLE categories (
     created_at timestamptz DEFAULT now()
 );
 
--- Create transactions table
 CREATE TABLE transactions (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id uuid REFERENCES auth.users NOT NULL,
@@ -43,24 +15,20 @@ CREATE TABLE transactions (
     created_at timestamptz DEFAULT now()
 );
 
--- Enable RLS
 ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
 ALTER TABLE transactions ENABLE ROW LEVEL SECURITY;
 
--- Categories policies (viewable by all authenticated users)
 CREATE POLICY "Categories are viewable by authenticated users"
     ON categories FOR SELECT
     TO authenticated
     USING (true);
 
--- Transactions policies
 CREATE POLICY "Users can manage their own transactions"
     ON transactions FOR ALL
     TO authenticated
     USING (auth.uid() = user_id)
     WITH CHECK (auth.uid() = user_id);
 
--- Insert default categories
 INSERT INTO categories (name, type) VALUES
     ('Salary', 'INCOME'),
     ('Freelance', 'INCOME'),
